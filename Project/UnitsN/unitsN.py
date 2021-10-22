@@ -37,13 +37,13 @@ parser.add_argument("-N2U","--full-to-unit-numbers", action="store_true",
 
 parser.add_argument("number", type=str, 
         help="The number.")
-parser.add_argument("--units", type=str, metavar="XX",
-        help="The Units.", required=True)
+parser.add_argument("-u", "--units", type=str,
+        help="The Units.(comma-separated)", required=True)
 
 # execute the parsing function and get the object with results of args in input inside...
 args = parser.parse_args()
 
-print(len(arg.units))
+print(args.units)
 
 
 # ============= CLASS =============
