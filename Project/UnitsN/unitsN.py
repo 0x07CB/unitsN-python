@@ -43,6 +43,9 @@ parser.add_argument("--units", type=str, metavar="XX",
 # execute the parsing function and get the object with results of args in input inside...
 args = parser.parse_args()
 
+print(len(arg.units))
+
+
 # ============= CLASS =============
 #
 class unitsN(object):
