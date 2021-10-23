@@ -43,7 +43,18 @@ parser.add_argument("-u", "--units", type=str,
 # execute the parsing function and get the object with results of args in input inside...
 args = parser.parse_args()
 
-print(args.units)
+# ACCUMULATION OF UNITS (MAX 2 UNITS)
+units = args.units
+if "," in units:
+    units = units.split(",")
+else:
+    units = [ "{unit}".format(
+            unit = units
+            ) ]
+
+
+
+
 
 
 # ============= CLASS =============
@@ -64,7 +75,14 @@ class unitsN(object):
 #
 
 
+uNum = unitsN()
 
+# ERROR ON ARG, MANAGEMENT
+if args.units:
+    if (len(units) > 2):
+        uNum.callErrorShowFunction("TOO MANY UNITS ON '--units' ARGS")
+    else (len(units) < 1):
+        uNum.callErrorShowFunction("NO ONE UNITS ON '--units' ARGS")
 
 
 
