@@ -81,7 +81,9 @@ class unitsN(object):
 
 
     def whatIsTheUnitOfThisNumber(self, x):
-        
+       pass
+
+    
     
     def calcPowerOf(self, x, uPow):
         try:
@@ -110,13 +112,16 @@ uNum = unitsN()
 if args.units:
     # just N2U/U2N
     if (len(units) == 1):
-        uNum.numToUnits(num,units)
+        if args.full_numbers_to_unit():
+            uNum.numToUnits(num,units)
 
-        uNum.unitsToNum(units,num)
+        if args.unit_to_full_numbers():
+            uNum.unitsToNum(units,num)
 
     # maybe U2U
     elif (len(units) == 2):
-        pass
+        if args.unit_to_unit:
+            uNum.unitsToUnits(units1,units2)
 
     # errors managed...
     elif (len(units) > 2):
