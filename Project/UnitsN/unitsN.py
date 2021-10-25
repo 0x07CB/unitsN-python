@@ -61,18 +61,23 @@ class unitsN(object):
         self.unitsLetters = ["","K","M","G","T","P"]
         self.unitsValuePowerOf = [0,3,6,9,12,15]
         # Units data for conversion and compute 
-        self.unitsPowerOfDictByLetters = {}
-
-
+        self.unitsPowerOfDictByLetters, self.unitsLettersDictByPowerOf = {}, {}
         for x in self.unitsValuePowerOf:
+            
+            _index = self.unitsValuePowerOf.index(x)
+
             self.unitsPowerOfDictByLetters[
                     self.unitsLetters[
-                        self.unitsValuePowerOf.index(x)
-                    ] = self.calcPowerOf(x, self.powerOf)
+                        _index
+                    ]
+                ] = self.calcPowerOf(x, self.powerOf)
 
             self.unitsLettersDictByPowerOf[
-                    self.
+                    self.unitsValuePowerOf[
+                        _index
                     ]
+                ] = _index
+        #
 
 
     def whatIsTheUnitOfThisNumber(self, x):
