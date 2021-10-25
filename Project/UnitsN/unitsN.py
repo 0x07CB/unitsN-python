@@ -64,9 +64,10 @@ class unitsN(object):
         self.strUnitNum = "0"
 
 
-    def callErrorShowFunction(self, TYPE_ERR_DESC):
-        print("Error: {typeErr}".format(
-            typeErr = TYPE_ERR_DESC
+    def callErrorShowFunction(self, TYPE_ERR_DESC, ARG_ERR_NAME=""):
+        print("Error: {typeErr} {argName}".format(
+            typeErr = TYPE_ERR_DESC,
+            argName = ARG_ERR_NAME
             ))
         exit(-1)
 
@@ -79,11 +80,12 @@ uNum = unitsN()
 
 # ERROR ON ARG, MANAGEMENT
 if args.units:
-    if (len(units) > 2):
-        uNum.callErrorShowFunction("TOO MANY UNITS ON '--units' ARGS")
-    else (len(units) < 1):
-        uNum.callErrorShowFunction("NO ONE UNITS ON '--units' ARGS")
-
+    elif (len(units) > 2):
+        uNum.callErrorShowFunction("TOO MANY UNITS ON ARGS:", "'--units'")
+    elif (len(units) < 1):
+        uNum.callErrorShowFunction("NO ONE UNITS ON ARGS:", "'--units'")
+    else:
+        uNum.callErrorShowFunction("UNKNOWN ERROR ON ARGS:", "'--units'")
 
 
 #reference to remind for construct that...
