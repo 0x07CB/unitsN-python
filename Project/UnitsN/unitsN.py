@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 #coding: utf-8
-__VERSION__ = "0.0.0. # NOT READY #"
+__VERSION__ = "0.0.0 # NOT READY #"
 
 # unitsN.py
 # Author: Rick Sanchez [ D-634 ]
@@ -61,11 +61,22 @@ class unitsN(object):
         self.unitsLetters = ["","K","M","G","T","P"]
         self.unitsValuePowerOf = [0,3,6,9,12,15]
         # Units data for conversion and compute 
+        self.unitsPowerOfDictByLetters = {}
 
 
+        for x in self.unitsValuePowerOf:
+            self.unitsPowerOfDictByLetters[
+                    self.unitsLetters[
+                        self.unitsValuePowerOf.index(x)
+                    ] = self.calcPowerOf(x, self.powerOf)
+
+            self.unitsLettersDictByPowerOf[
+                    self.
+                    ]
 
 
-
+    def whatIsTheUnitOfThisNumber(self, x):
+        
     
     def calcPowerOf(self, x, uPow):
         try:
