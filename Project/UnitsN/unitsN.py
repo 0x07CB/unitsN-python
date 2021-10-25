@@ -1,16 +1,10 @@
 #!/usr/bin/python3
 #coding: utf-8
-__VERSION__ = "0.1.0"
+__VERSION__ = "0.0.0. # NOT READY #"
 
 # unitsN.py
 # Author: Rick Sanchez [ D-634 ]
 
-# THIS CODE IS ... SIMPLE...
-# GUIDE (to read fast): 
-#
-# Library import start here and, arg parsing just after,
-# Class after the parsing and function. 
-#
 # ============ LIB ============
 import os, argparse, hashlib, json
 #from base64 import b64encode as benc
