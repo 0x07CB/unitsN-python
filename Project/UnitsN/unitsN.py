@@ -63,37 +63,56 @@ class unitsN(object):
         # Units data for conversion and compute 
         self.unitsPowerOfDictByLetters, self.unitsLettersDictByPowerOf = {}, {}
         for x in self.unitsValuePowerOf:
-            
+            # Take the index 
             _index = self.unitsValuePowerOf.index(x)
-
+            # Units to Letters
             self.unitsPowerOfDictByLetters[
                     self.unitsLetters[
                         _index
                     ]
                 ] = self.calcPowerOf(x, self.powerOf)
-
+            # Letters to units
             self.unitsLettersDictByPowerOf[
                     self.unitsValuePowerOf[
                         _index
                     ]
                 ] = _index
-        #
+    
+
+    def numToUnits(self, num, units):
+        return self.calcPowerOf(num,self.unitsPowerOfDictByLetters[units],OP_MOD1="/")
+
+    def unitsToNum(self, units, num):
+        return self.calcPowerOf(num,self.unitsPowerOfDictByLetters[units],OP_MOD1="*")
 
 
     def whatIsTheUnitOfThisNumber(self, x):
-       pass
-
+        d = str(x)
+        unitsMap = { 
+            "": [1,2,3], 
+            "K": [4,5,6],
+            "M": [7,8,9],
+            "G": [10,11,12],
+            "T": [13,14,15],
+            "P": [16,17,18]
+        }
+        #
+        for k,v in unitsMap.items():
+            if len(d) in v:
+                return k
+        return None 
     
-    
-    def calcPowerOf(self, x, uPow):
+    def calcPowerOf(self, x, uPow, OP_MOD1="*"):
         try:
-            return x * ( self.powerOf ** uPow ) 
+            if OP_MOD1 == "*":
+                return x * ( self.powerOf ** uPow ) 
+            elif OP_MOD1 == "/":
+                return x / ( self.powerOf ** uPow )
         except Exception as e:
             print("Exception is : {e}".format(
                 e = e
                 ))
             exit(-1)
-
 
     def callErrorShowFunction(self, TYPE_ERR_DESC, ARG_ERR_NAME=""):
         print("Error: {typeErr} {argName}".format(
